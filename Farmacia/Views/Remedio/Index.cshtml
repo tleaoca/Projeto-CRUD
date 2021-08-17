@@ -1,0 +1,81 @@
+﻿@model List<Remedio>
+<br /><br /><br /><br />
+<a class="btn btn-outline-dark" asp-controller="Remedio" asp-action="Create">Criar um novo Remédio</a>
+
+@if (ViewBag.ordenar == true)
+{
+    <a class="btn btn-dark" asp-action="Index">Remover ordenação</a>
+}
+else
+{
+    <a class="btn btn-outline-dark" href="/Remedio/Index?ordenar=true">Ordernar por nome</a>
+}
+<br /><br />
+
+
+<form class="d-flex" asp-controller="Remedio" asp-action="Index">
+    <select name="service2" class="form-control">
+        <option value="sql" selected>Dados SQL</option>
+        <option value="static">Dados Estáticos</option>
+        <option value="both">Ambos</option>
+    </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input width="100" class="btn btn-outline-dark" type="submit" value="Alterar" />
+</form><br />
+
+@if (Model.Count() == 0)
+{
+    <div class="alert alert-danger" role="alert">
+        Remédio não encontrado!
+    </div>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th class="table-dark text-center" scope="col">@Html.DisplayNameFor(Model => Model.First().Id)</th>
+            <th class="table-dark text-center" scope="col">@Html.DisplayNameFor(Model => Model.First().Nome)</th>
+            <th class="table-dark text-center" scope="col">@Html.DisplayNameFor(Model => Model.First().Fabricante)</th>
+            <th class="table-dark text-center" scope="col">@Html.DisplayNameFor(Model => Model.First().Quantidade)</th>
+            <th class="table-dark text-center" scope="col">@Html.DisplayNameFor(Model => Model.First().Preco)</th>
+            <th class="table-dark text-center" scope="col">Ações</th>
+            <th class="table-dark" scope="col">Status</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Remedio r in Model)
+        {            
+        <tr>
+            <th scope="row">@Html.DisplayFor(Model => r.Id)</th>
+            <td class="text-center">@Html.DisplayFor(Model => r.Nome)</td>
+            <td class="text-center">@Html.DisplayFor(Model => r.Fabricante)</td>
+            <td class="text-center">@Html.DisplayFor(Model => r.Quantidade) Unidades</td>
+            <td class="text-center">R$@Html.DisplayFor(Model => r.Preco)</td>
+            @if (ViewBag.service == "sql")
+            {
+                <td class="text-center">
+                    <a class="btn btn-outline-dark" asp-controller="Remedio" asp-action="Read" asp-route-id="@r.Id">Visualizar</a>
+                    <a class="btn btn-outline-dark" asp-controller="Remedio" asp-action="Update" asp-route-id="@r.Id">Editar</a>
+                    <a class="btn btn-outline-dark" asp-controller="Remedio" asp-action="Delete" asp-route-id="@r.Id">Deletar</a>
+                </td>
+            }
+            else
+            {
+                <td>Ação não disponível</td>
+            }
+            @if (r.Validade < DateTime.Today)
+                {
+                    <td class="text-danger font-weight-bold">VENCIDO</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
