@@ -1,5 +1,6 @@
 ﻿using Farmacia.Models;
 using Farmacia.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Farmacia.Controllers
-{
+{    
     public class RemedioController : Controller
     {
         IRemedioService staticService, SqlService, BothService, service;

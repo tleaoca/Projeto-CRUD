@@ -3,6 +3,7 @@ using Farmacia.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,6 +36,9 @@ namespace Farmacia
             services.AddTransient<RemedioSqlService>();
             services.AddTransient<IRemedioService, RemedioSqlService>();
             services.AddTransient<IPedidoService, PedidoSqlService>();
+
+            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<RemedioContext>();
+                
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +59,7 @@ namespace Farmacia
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -62,6 +67,7 @@ namespace Farmacia
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Remedio}/{action=Home}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }

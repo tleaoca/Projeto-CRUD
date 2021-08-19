@@ -1,5 +1,6 @@
 ﻿using Farmacia.Models;
 using Farmacia.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Farmacia.Controllers
 {
+    [Authorize]
     public class PedidoController : Controller
     {
         IPedidoService service;

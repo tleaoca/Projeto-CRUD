@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\blue\\MOD 3\\Projeto\\Farmacia\\Farmacia.csproj": {}
+    "C:\\Projeto-CRUD\\Farmacia\\Farmacia.csproj": {}
   },
   "projects": {
-    "C:\\blue\\MOD 3\\Projeto\\Farmacia\\Farmacia.csproj": {
+    "C:\\Projeto-CRUD\\Farmacia\\Farmacia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\blue\\MOD 3\\Projeto\\Farmacia\\Farmacia.csproj",
+        "projectUniqueName": "C:\\Projeto-CRUD\\Farmacia\\Farmacia.csproj",
         "projectName": "Farmacia",
-        "projectPath": "C:\\blue\\MOD 3\\Projeto\\Farmacia\\Farmacia.csproj",
+        "projectPath": "C:\\Projeto-CRUD\\Farmacia\\Farmacia.csproj",
         "packagesPath": "C:\\Users\\Thiago\\.nuget\\packages\\",
-        "outputPath": "C:\\blue\\MOD 3\\Projeto\\Farmacia\\obj\\",
+        "outputPath": "C:\\Projeto-CRUD\\Farmacia\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Thiago\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,23 +40,35 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
-              "version": "[5.0.8, )"
+              "version": "[5.0.9, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.8, )"
+              "version": "[5.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.8, )"
+              "version": "[5.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.8, )"
+              "version": "[5.0.9, )"
             }
           },
           "imports": [

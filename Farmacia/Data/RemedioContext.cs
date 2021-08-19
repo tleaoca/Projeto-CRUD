@@ -1,4 +1,5 @@
 ﻿using Farmacia.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Farmacia.Data
 {
-    public class RemedioContext : DbContext
+    public class RemedioContext : IdentityDbContext
     {
         public RemedioContext(DbContextOptions<RemedioContext> options) : base (options)
         {
