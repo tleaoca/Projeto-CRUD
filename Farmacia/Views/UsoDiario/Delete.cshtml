@@ -1,0 +1,20 @@
+﻿@model Farmacia.Models.UsoDiario
+
+@{
+    ViewData["Title"] = "Deletar";
+}
+
+<br /><br /><br /><br />
+<center>
+    <h1>Deletar Uso diário @Model.Nome de ID @Model.Id ?</h1>
+    <br />    <br />
+
+
+<div>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <input class="btn btn-outline-dark" type="submit" value="Confirmar" />
+    <a class="btn btn-outline-dark" asp-action="Index">Cancelar</a>
+</form>
+</div>
+</center>

@@ -17,5 +17,6 @@ namespace Farmacia.Data
         public DbSet<Remedio> Remedio { get; set; }
 
         public DbSet<Pedido> Pedido { get; set; }
+        public DbSet<UsoDiario> UsoDiario { get; set; }
     }
 }

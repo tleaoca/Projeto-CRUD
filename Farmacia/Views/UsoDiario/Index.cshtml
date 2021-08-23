@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Farmacia.Models.UsoDiario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+<br />
+<br />
+<br />
+<p>
+    <a class="btn btn-outline-dark" asp-action="Create">Criar novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="table-dark text-center">
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th class="table-dark text-center">
+                @Html.DisplayNameFor(model => model.Fabricante)
+            </th>
+            <th class="table-dark text-center">
+                @Html.DisplayNameFor(model => model.Quantidade)
+            </th>
+            <th class="table-dark text-center">
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th class="table-dark text-center">
+                @Html.DisplayNameFor(model => model.Validade)
+            </th>
+            <th class="table-dark text-center">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr class="text-center">
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fabricante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Validade)
+            </td>
+            <td class="text-center">
+                <a class="btn btn-outline-dark" asp-action="Details" asp-route-id="@item.Id">Visualizar</a>
+                <a class="btn btn-outline-dark" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                <a class="btn btn-outline-dark" asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

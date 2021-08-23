@@ -38,6 +38,13 @@ namespace Farmacia
             services.AddTransient<IPedidoService, PedidoSqlService>();
 
             services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<RemedioContext>();
+
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];                
+                facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+
+            });
                 
         }
 
